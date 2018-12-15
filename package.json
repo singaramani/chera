@@ -1,0 +1,11 @@
+{
+	"main": "app.js",
+	"dependencies": {
+		"puppeteer": "GoogleChrome/puppeteer",
+		"upstox": "upstox/upstox-nodejs#staging"
+	},
+	"scripts": {
+		"build": true,
+		"start": "node app.js"
+	}
+}
