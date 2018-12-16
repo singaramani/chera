@@ -11,6 +11,7 @@ const UNAME = process.env.UNAME;
 const UPASS = process.env.UPASS;
 const U2FA = process.env.U2FA;
 const FIN_URL = process.env.FINURL;
+const CODE_EP = process.env.CODEEP;
 
 try{
 	http.createServer(function (request, response) {
@@ -25,7 +26,7 @@ try{
 async function processReq(request, response) {
 	try {
 		var urlpath = request.url.split("?").shift();
-		if (urlpath == '/getCode') {
+		if (urlpath == '/'+CODE_EP) {
 			var atcode = await fetchCodePuppet();
 			response.writeHead(200, {'Content-Type': 'application/json'});
 			response.end(JSON.stringify({token: atcode, time: new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"})+" IST"}));
