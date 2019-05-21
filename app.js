@@ -73,7 +73,7 @@ async function fetchCodePuppet() {
 		//const browser=await puppeteer.launch({headless:false});
 		const browser = await puppeteer.launch({args: ['--no-sandbox']});
 		const page = await browser.newPage();
-		await page.goto("https://staging-api.upstox.com/index/dialog/authorize?apiKey=" + APP_KEY + "&redirect_uri=" + RDR_URL + "&response_type=code");
+		await page.goto("https://api.upstox.com/index/dialog/authorize?apiKey=" + APP_KEY + "&redirect_uri=" + RDR_URL + "&response_type=code");
 		await page.waitForSelector(".bottom-box");
 		await page.type('#name', process.env.UNAME);
 		await page.type('#password', process.env.UPASS);
